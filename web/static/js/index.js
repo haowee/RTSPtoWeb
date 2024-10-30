@@ -14,7 +14,7 @@ function showAddStream(streamName, streamUrl) {
   streamName = streamName || '';
   streamUrl = streamUrl || '';
   Swal.fire({
-    title: 'Add stream',
+    title: '添加视频流',
     html: '<form class="text-left"> ' +
       '<div class="form-group">' +
       '<label>Name</label>' +

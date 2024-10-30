@@ -7,8 +7,8 @@
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="/">Home</a></li>
-          <li class="breadcrumb-item active">Edit stream</li>
+          <li class="breadcrumb-item"><a href="/">首页</a></li>
+          <li class="breadcrumb-item active">编辑视频流</li>
         </ol>
       </div>
     </div>
@@ -28,37 +28,37 @@
             <form class="stream-form main-form">
               <div class="card-body">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Stream name</label>
-                  <input type="text" class="form-control" name="stream-name" placeholder="Enter stream name" value="{{$stream.Name}}" id="stream-name">
-                  <small  class="form-text text-muted">You can choose any name for the stream, for example "My room" or  "Happy sausage"</small>
+                  <label for="exampleInputEmail1">视频流名称</label>
+                  <input type="text" class="form-control" name="stream-name" placeholder="输入流名称" value="{{$stream.Name}}" id="stream-name">
+                  <small  class="form-text text-muted">您可以为流选择任何名称, 比如 "My room" 或者  "Happy sausage"</small>
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Stream url</label>
-                  <input type="text" name="stream-url" class="form-control"  placeholder="Enter stream url" value="{{$mainChannel.URL}}">
-                  <small  class="form-text text-muted">Enter rtsp address as instructed by your camera. Look like <code>rtsp://&lt;ip&gt;:&lt;port&gt;/path </code></small>
+                  <label for="exampleInputPassword1">视频流地址</label>
+                  <input type="text" name="stream-url" class="form-control"  placeholder="输入流地址" value="{{$mainChannel.URL}}">
+                  <small  class="form-text text-muted">按照相机的指示输入rtsp地址. 比如 <code>rtsp://&lt;ip&gt;:&lt;port&gt;/path </code></small>
                 </div>
                 <div class="form-group">
-                  <label for="inputStatus">Stream type</label>
+                  <label for="inputStatus">视频流类型</label>
                   <select class="form-control custom-select" name="stream-ondemand">
                     <option selected disabled><small>Select One</small></option>
                     <option value="1"
                     {{ if eq $mainChannel.OnDemand true}}
                       selected
-                    {{ end }}>On demand only</option>
+                    {{ end }}>仅按需</option>
                     <option value="0" {{ if eq $mainChannel.OnDemand false}}
                       selected
-                    {{ end }}>Persistent connection</option>
+                    {{ end }}>持久连接</option>
                   </select>
-                  <small  class="form-text text-muted">On persistent connection, the server get data from the camera continuously. On demand, the server get data from the camera only when you click play button </small>
+                  <small  class="form-text text-muted">在持久连接上，服务器不断从摄像机获取数据。仅按需，只有当你点击播放按钮，服务器从相机获取数据 </small>
                 </div>
                 <div class="form-group">
                   <div class="custom-control custom-switch">
                     <input type="checkbox" class="custom-control-input" name="debug" id="debug-switch" {{ if eq $mainChannel.Debug true}}
                       checked
                     {{ end }}>
-                    <label class="custom-control-label" for="debug-switch">Enable debug</label>
+                    <label class="custom-control-label" for="debug-switch">启用调试</label>
                   </div>
-                  <small  class="form-text text-muted">Select this options if you want get more data about the stream </small>
+                  <small  class="form-text text-muted">如果要获取有关流的更多数据，请选择此选项 </small>
                 </div>
               </div>
             </form>
@@ -78,9 +78,9 @@
                       <div class="card-body">
                       <form class="stream-form">
                         <div class="form-group">
-                          <label for="exampleInputPassword1">Substream url</label>
+                          <label for="exampleInputPassword1">视频流地址</label>
                           <input type="text" name="stream-url" class="form-control"  placeholder="Enter stream url" value="{{$value.URL}}" >
-                          <small  class="form-text text-muted">Enter rtsp address as instructed by your camera. Look like <code>rtsp://&lt;ip&gt;:&lt;port&gt;/path </code> </small>
+                          <small  class="form-text text-muted">按照相机的指示输入rtsp地址. 比如 <code>rtsp://&lt;ip&gt;:&lt;port&gt;/path </code> </small>
                         </div>
                         <div class="form-group">
 
@@ -90,22 +90,22 @@
                           <option value="1"
                           {{ if eq $value.OnDemand true}}
                             selected
-                          {{ end }}>On demand only</option>
+                          {{ end }}>仅按需</option>
                           <option value="0"
                           {{ if eq $value.OnDemand false}}
                             selected
-                          {{ end }}>Persistent connection</option>
+                          {{ end }}>持久连接</option>
                         </select>
-                          <small  class="form-text text-muted">On persistent connection, the server get data from the camera continuously. On demand, the server get data from the camera only when you click play button </small>
+                          <small  class="form-text text-muted">在持久连接上，服务器不断从摄像机获取数据。仅按需，只有当你点击播放按钮，服务器从相机获取数据 </small>
                         </div>
                         <div class="form-group">
                           <div class="custom-control custom-switch">
                             <input type="checkbox" class="custom-control-input" name="debug" id="substream-debug-switch-{{$key}}" {{ if eq $value.Debug true}}
                               checked
                             {{ end }}>
-                            <label class="custom-control-label" for="substream-debug-switch-{{$key}}">Enable debug</label>
+                            <label class="custom-control-label" for="substream-debug-switch-{{$key}}">开启调试</label>
                           </div>
-                          <small  class="form-text text-muted">Select this options if you want get more data about the stream </small>
+                          <small  class="form-text text-muted">如果要获取有关流的更多数据，请选择此选项</small>
                         </div>
                           </form>
                       </div>
@@ -117,8 +117,8 @@
         </div>
         <div class="row  mb-3">
             <div class="col-12">
-              <button type="button" onclick="addChannel()" class="btn btn-secondary">Add channel</button>
-              <button type="button" onclick="editStreamSubmit()" class="btn btn-primary">Save stream</button>
+              <button type="button" onclick="addChannel()" class="btn btn-secondary">添加频道</button>
+              <button type="button" onclick="editStreamSubmit()" class="btn btn-primary">保存流</button>
             </div>
         </div>
 
