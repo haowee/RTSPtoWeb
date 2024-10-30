@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Edit stream</h1>
+        <h1 class="m-0 text-dark">编辑视频流</h1>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
@@ -23,7 +23,7 @@
         <div class="col-md-12">
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Parameters<small> main</small></h3>
+              <h3 class="card-title">主 通道<small> 参数</small></h3>
             </div>
             <form class="stream-form main-form">
               <div class="card-body">
@@ -40,7 +40,7 @@
                 <div class="form-group">
                   <label for="inputStatus">视频流类型</label>
                   <select class="form-control custom-select" name="stream-ondemand">
-                    <option selected disabled><small>Select One</small></option>
+                    <option selected disabled><small>选择一项</small></option>
                     <option value="1"
                     {{ if eq $mainChannel.OnDemand true}}
                       selected
@@ -70,7 +70,7 @@
                 <div class="col-12">
                   <div class="card card-secondary">
                     <div class="card-header">
-                      <h3 class="card-title">Sub channel<small> parameters</small></h3>
+                      <h3 class="card-title">子 通道<small> 参数</small></h3>
                       <div class="card-tools">
                       <button type="button" class="btn btn-tool" onclick="removeChannelDiv(this)"><i class="fas fa-times"></i></button>
                       </div>
@@ -86,7 +86,7 @@
 
                           <label for="inputStatus">Substream type</label>
                           <select class="form-control custom-select" name="stream-ondemand">
-                          <option selected disabled><small>Select One</small></option>
+                          <option selected disabled><small>选择一项</small></option>
                           <option value="1"
                           {{ if eq $value.OnDemand true}}
                             selected
@@ -117,7 +117,7 @@
         </div>
         <div class="row  mb-3">
             <div class="col-12">
-              <button type="button" onclick="addChannel()" class="btn btn-secondary">添加频道</button>
+              <button type="button" onclick="addChannel()" class="btn btn-secondary">添加通道</button>
               <button type="button" onclick="editStreamSubmit()" class="btn btn-primary">保存流</button>
             </div>
         </div>

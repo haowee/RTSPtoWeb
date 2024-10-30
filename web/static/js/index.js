@@ -466,7 +466,7 @@ function chanellTemplate() {
     <div class="col-12">
       <div class="card card-secondary">
         <div class="card-header">
-          <h3 class="card-title">Sub channel<small> parameters</small></h3>
+          <h3 class="card-title">子 通道<small> 参数</small></h3>
           <div class="card-tools">
           <button type="button" class="btn btn-tool" onclick="removeChannelDiv(this)"><i class="fas fa-times"></i></button>
           </div>
@@ -474,25 +474,25 @@ function chanellTemplate() {
           <div class="card-body">
           <form class="stream-form">
             <div class="form-group">
-              <label for="exampleInputPassword1">Substream url</label>
-              <input type="text" name="stream-url" class="form-control"  placeholder="Enter stream url" >
-              <small  class="form-text text-muted">Enter rtsp address as instructed by your camera. Look like <code>rtsp://&lt;ip&gt;:&lt;port&gt;/path </code> </small>
+              <label for="exampleInputPassword1">子视频流 地址</label>
+              <input type="text" name="stream-url" class="form-control"  placeholder="输入 视频流 地址" >
+              <small  class="form-text text-muted">按照相机的指示输入rtsp地址. 比如 <code>rtsp://&lt;ip&gt;:&lt;port&gt;/path </code> </small>
             </div>
             <div class="form-group">
-              <label for="inputStatus">Substream type</label>
+              <label for="inputStatus">子视频流 类型</label>
               <select class="form-control custom-select" name="stream-ondemand" >
-                <option selected disabled><small>Select One</small></option>
-                <option value="1">On demand only</option>
-                <option value="0">Persistent connection</option>
+                <option selected disabled><small>选择一项</small></option>
+                <option value="1">仅按需</option>
+                <option value="0">持久连接</option>
               </select>
-              <small  class="form-text text-muted">On persistent connection, the server get data from the camera continuously. On demand, the server get data from the camera only when you click play button </small>
+              <small  class="form-text text-muted">在持久连接上，服务器不断从摄像机获取数据。仅按需，只有当你点击播放按钮，服务器从相机获取数据 </small>
             </div>
             <div class="form-group">
               <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" name="debug" id="substream-debug-switch-` + random + `" >
-                <label class="custom-control-label" for="substream-debug-switch-` + random + `">Enable debug</label>
+                <label class="custom-control-label" for="substream-debug-switch-` + random + `">开启调试</label>
               </div>
-              <small  class="form-text text-muted">Select this options if you want get more data about the stream </small>
+              <small  class="form-text text-muted">如果要获取有关流的更多数据，请选择此选项 </small>
             </div>
               </form>
           </div>

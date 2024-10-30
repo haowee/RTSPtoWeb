@@ -92,11 +92,11 @@ rtsp_port       - rtsp 服务 端口
 name            - 流 名称
 ```
 
-### 频道 设置
+### 通道 设置
 
 ```text
-name            - 频道 名称
-url             - 频道 rtsp 地址
+name            - 通道 名称
+url             - 通道 rtsp 地址
 on_demand       - 流模式静态（随时运行）或点播（查看时运行）
 debug           - 启用调试输出（RTSP 客户端）
 audio           - 启用音频

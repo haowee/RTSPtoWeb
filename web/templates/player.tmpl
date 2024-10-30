@@ -37,7 +37,7 @@
                   <div class="carousel-item {{ if eq $k "0"}} active {{end}}">
                     <img class="d-block w-100 stream-img fix-height" channel="{{$k}}" src="/../static/img/noimage.svg">
                     <div class="carousel-caption d-none d-md-block">
-                      <h5>Channel: {{$k}}</h5>
+                      <h5>通道: {{$k}}</h5>
                     </div>
                   </div>
                   {{end}}
@@ -97,8 +97,8 @@
 
 
 
-                      <a class="btn btn-secondary btn-flat btn-xs" href="/pages/stream/edit/{{$key}}"><i class="fas fa-edit"></i> Edit</a>
-                      <a class="btn btn-danger btn-flat btn-xs" onclick="deleteStream('{{ $key }}')" href="#"><i class="fas fa-times"></i> Delete</a>
+                      <a class="btn btn-secondary btn-flat btn-xs" href="/pages/stream/edit/{{$key}}"><i class="fas fa-edit"></i> 编辑</a>
+                      <a class="btn btn-danger btn-flat btn-xs" onclick="deleteStream('{{ $key }}')" href="#"><i class="fas fa-times"></i> 删除</a>
                   </div>
                 </div>
               </div>
