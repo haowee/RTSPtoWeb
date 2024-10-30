@@ -1,53 +1,53 @@
-# RTSPtoWeb share you ip camera to world!
+# RTSPtoWeb分享你的ip摄像机到世界!
 
-RTSPtoWeb converts your RTSP streams to formats consumable in a web browser
-like MSE (Media Source Extensions), WebRTC, or HLS. It's fully native Golang
-without the use of FFmpeg or GStreamer!
-[中文](README_CN.md)
-## Table of Contents
+RTSPtoWeb将您的RTSP流转换为可在web浏览器中使用的格式
+如MSE (媒体源扩展) 、WebRTC或HLS。这是完全原生的Golang
+不使用FFmpeg或GStreamer!
+[英文](README.md)
+## 目录
 
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Command-line](#command-line)
-- [API documentation](#api-documentation)
-- [Limitations](#limitations)
-- [Performance](#performance)
-- [Authors](#authors)
-- [License](#license)
+- [安装](#安装)
+- [配置](#配置)
+- [命令行](#命令行)
+- [API文档](#API-文档)
+- [限制](#限制)
+- [性能](#性能)
+- [作者](#作者)
+- [许可证](#许可证)
 
-## Installation
+## 安装
 
-### Installation from source
+### 源码安装
 
-1. Download source
+1. 下载源
    ```bash
-   $ git clone https://github.com/deepch/RTSPtoWeb
+   $ git clone https://github.com/haowee/RTSPtoWeb
    ```
-1. CD to Directory
+1. 进入文件夹
    ```bash
     $ cd RTSPtoWeb/
    ```
-1. Test Run
+1. 测试运行
    ```bash
     $ GO111MODULE=on go run *.go
    ```
-1. Open Browser
+1. 打开浏览器
     ```bash
     open web browser http://127.0.0.1:8083 work chrome, safari, firefox
     ```
 
-## Installation from docker
+## 安装到Docker
 
-1. Run docker container
+1. 运行docker容器
     ```bash
     $ docker run --name rtsp-to-web --network host ghcr.io/deepch/rtsptoweb:latest 
     ```
-1. Open Browser
+1. 打开浏览器
     ```bash
     open web browser http://127.0.0.1:8083 in chrome, safari, firefox
     ```
 
-You may override the <a href="#example-configjson">configuration</a> `/PATH_TO_CONFIG/config.json` and mount as a docker volume:
+你可以覆盖 <a href="#example-configjson">配置</a> `/PATH_TO_CONFIG/config.json` 并挂载为docker数据卷:
 
 ```bash
 $ docker run --name rtsp-to-web \
@@ -56,25 +56,25 @@ $ docker run --name rtsp-to-web \
     ghcr.io/deepch/rtsptoweb:latest 
 ```
 
-## Configuration
+## 配置
 
-### Server settings
+### 服务设置
 
 ```text
-debug           - enable debug output
-log_level       - log level (trace, debug, info, warning, error, fatal, or panic)
+debug           - 启用调试输出
+log_level       - 日志级别（跟踪、调试、信息、警告、错误、致命或崩溃）
 
-http_demo       - serve static files
-http_debug      - debug http api server
-http_login      - http auth login
-http_password   - http auth password
-http_port       - http server port
-http_dir        - path to serve static files from
-ice_servers     - array of servers to use for STUN/TURN
-ice_username    - username to use for STUN/TURN
-ice_credential  - credential to use for STUN/TURN
-webrtc_port_min - minimum WebRTC port to use (UDP)
-webrtc_port_max - maximum WebRTC port to use (UDP)
+http_demo       - 服务静态文件
+http_debug      - 调试 HTTP API 服务
+http_login      - HTTP 验证 登录
+http_password   - http 验证 密码
+http_port       - http 服务 端口
+http_dir        - 提供静态文件的路径
+ice_servers     - 用于 STUN/TURN 的服务器数组
+ice_username    - 用于 STUN/TURN 的用户名
+ice_credential  - 用于 STUN/TURN 的凭证
+webrtc_port_min - 要使用的最小 WebRTC 端口 （UDP）
+webrtc_port_max - 要使用的最大 WebRTC 端口数 （UDP）
 
 https
 https_auto_tls
@@ -83,29 +83,29 @@ https_cert
 https_key
 https_port
 
-rtsp_port       - rtsp server port
+rtsp_port       - rtsp 服务 端口
 ```
 
-### Stream settings
+### 流 设置
 
 ```text
-name            - stream name
+name            - 流 名称
 ```
 
-### Channel settings
+### 频道 设置
 
 ```text
-name            - channel name
-url             - channel rtsp url
-on_demand       - stream mode static (run any time) or ondemand (run only has viewers)
-debug           - enable debug output (RTSP client)
-audio           - enable audio
-status          - default stream status
+name            - 频道 名称
+url             - 频道 rtsp 地址
+on_demand       - 流模式静态（随时运行）或点播（查看时运行）
+debug           - 启用调试输出（RTSP 客户端）
+audio           - 启用音频
+status          - 默认流状态
 ```
 
-#### Authorization play video
+#### 授权播放视频
 
-1 - enable config
+1 - 启用配置
 
 ```text
 "token": {
@@ -114,7 +114,7 @@ status          - default stream status
 }
 ```
 
-2 - try
+2 - 尝试
 
 ```text
 rtsp://127.0.0.1:5541/demo/0?token=you_key
@@ -126,12 +126,12 @@ file.php need response json
    status: "1" or "0"
  ```
 
-#### RTSP pull modes
+#### RTSP 拉取 模式
 
-  * **on demand** (on_demand=true) - only pull video from the source when there's a viewer
-  * **static** (on_demand=false) - pull video from the source constantly
+  * **on demand** (on_demand=true) - 只有点击播放时才去拉取视频流
+  * **static** (on_demand=false) - 一直拉取视频流
 
-### Example config.json
+### 示例 config.json
 
 ```json
 {
@@ -194,15 +194,15 @@ file.php need response json
 }
 ```
 
-## Command-line
+## 命令行
 
-### Use help to show available args
+### 使用 help 显示可用的参数
 
 ```bash
 ./RTSPtoWeb --help
 ```
 
-#### Response
+#### 响应
 
 ```bash
 Usage of ./RTSPtoWeb:
@@ -212,30 +212,30 @@ Usage of ./RTSPtoWeb:
         set debug mode (default true)
 ```
 
-## API documentation
+## API 文档
 
 See the [API docs](/docs/api.md)
 
-## Limitations
+## 限制
 
-Video Codecs Supported: H264 all profiles
+视频 编码 支持: H264 所有 配置文件
 
-Audio Codecs Supported: no
+音频 编码 支持: no
 
-## Performance
+## 性能
 
 ```bash
 CPU usage ≈0.2%-1% one (thread) core cpu intel core i7 per stream
 ```
 
-## Authors
+## 作者
 
 * **Andrey Semochkin** - *Initial work video* - [deepch](https://github.com/deepch)
 * **Dmitriy Vladykin** - *Initial work web UI* - [vdalex25](https://github.com/vdalex25)
 
 See also the list of [contributors](https://github.com/deepch/RTSPtoWeb/contributors) who participated in this project.
 
-## License
+## 许可证
 
 This project licensed. License - see the [LICENSE.md](LICENSE.md) file for details
 
@@ -243,7 +243,7 @@ This project licensed. License - see the [LICENSE.md](LICENSE.md) file for detai
 
 [joy4](https://github.com/nareix/joy4) follows license MIT [license](https://raw.githubusercontent.com/nareix/joy4/master/LICENSE).
 
-## Other Example
+## 其他示例
 
 Examples of working with video on golang
 
